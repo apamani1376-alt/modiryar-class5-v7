@@ -1,31 +1,23 @@
-// نمایش دانش آموزان مدیریار
+document.addEventListener("DOMContentLoaded", function(){
 
-window.onload = function(){
+const buttons = document.querySelectorAll("button");
 
-    let box = document.getElementById("students-list");
+buttons.forEach(btn=>{
+    btn.addEventListener("click", function(){
 
-    if(box && typeof students !== "undefined"){
+        if(btn.innerText.includes("پرونده دانش‌آموزان")){
+            alert("بخش پرونده دانش‌آموزان در حال ساخت است");
+        }
 
-        students.forEach(function(student){
+        if(btn.innerText.includes("پایش یادگیری")){
+            alert("بخش پایش یادگیری در حال ساخت است");
+        }
 
-            box.innerHTML += `
+        if(btn.innerText.includes("گزارش")){
+            alert("بخش گزارش‌ها در حال ساخت است");
+        }
 
-            <div class="card">
+    });
+});
 
-                <h3>👨‍🎓 ${student.name}</h3>
-
-                <p>سطح علمی: ${student.level || "ثبت نشده"}</p>
-
-                <p>تمرکز: ${student.concentration || "ثبت نشده"}</p>
-
-                <p>مسئولیت پذیری: ${student.responsibility || "ثبت نشده"}</p>
-
-            </div>
-
-            `;
-
-        });
-
-    }
-
-};
+});
