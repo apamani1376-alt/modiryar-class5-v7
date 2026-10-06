@@ -7,7 +7,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>پرونده دانش‌آموزان</title>
+<title>
+پرونده دانش‌آموزان
+</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -16,21 +18,32 @@
 
 <body>
 
+
 <div class="container">
+
 
 <div class="header">
 
-<h1>👨‍🎓 پرونده دانش‌آموزان</h1>
+<h1>
+👨‍🎓 پرونده دانش‌آموزان
+</h1>
 
-<p>کلاس پنجم - مدیریت هوشمند</p>
+<p>
+مدیریت هوشمند کلاس پنجم
+</p>
+
+</div>
+
+
+
+<div id="students-list">
 
 </div>
 
 
-<div id="students-container"></div>
-
 
 </div>
+
 
 
 <script src="students.js"></script>
@@ -38,33 +51,57 @@
 
 <script>
 
-let box = document.getElementById("students-container");
+
+const list = document.getElementById("students-list");
 
 
 students.forEach(student => {
 
 
-box.innerHTML += `
+list.innerHTML += `
+
 
 <div class="card">
+
 
 <h2>
 👤 ${student.name}
 </h2>
 
-<p>
-گروه: ${student.group}
-</p>
 
 <p>
-سطح علمی: ثبت نشده
+گروه: ${student.group || "ثبت نشده"}
 </p>
 
-<button>
-ورود به پرونده
+
+<p>
+سطح علمی:
+${student.level || "ثبت نشده"}
+</p>
+
+
+<p>
+تمرکز:
+${student.concentration || "ثبت نشده"}
+</p>
+
+
+<p>
+مسئولیت‌پذیری:
+${student.responsibility || "ثبت نشده"}
+</p>
+
+
+
+<button onclick="openStudent(${student.id})">
+
+📂 مشاهده پرونده
+
 </button>
 
+
 </div>
+
 
 `;
 
@@ -72,7 +109,19 @@ box.innerHTML += `
 });
 
 
+
+
+function openStudent(id){
+
+
+alert("پرونده دانش‌آموز شماره " + id + " در حال ساخت است");
+
+
+}
+
+
 </script>
+
 
 
 </body>
