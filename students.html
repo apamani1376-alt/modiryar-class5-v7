@@ -1,127 +1,80 @@
-// بانک اطلاعات دانش آموزان مدیریار کلاس پنجم
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 
-const students = [];
+<head>
 
-// ساخت 32 دانش آموز در 8 گروه 4 نفره
+<meta charset="UTF-8">
 
-for(let i = 1; i <= 32; i++){
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    let group = Math.ceil(i / 4);
+<title>پرونده دانش‌آموزان</title>
 
-    students.push({
+<link rel="stylesheet" href="style.css">
 
-        id: i,
+</head>
 
-        name: "دانش‌آموز " + i,
 
-        group: group,
+<body>
 
-        // وضعیت آموزشی
+<div class="container">
 
-        level: "",
+<div class="header">
 
-        reading: "",
+<h1>👨‍🎓 پرونده دانش‌آموزان</h1>
 
-        writing: "",
+<p>کلاس پنجم - مدیریت هوشمند</p>
 
+</div>
 
-        // ویژگی‌های فردی
 
-        concentration: "",
+<div id="students-container"></div>
 
-        responsibility: "",
 
-        roleTaking: "",
+</div>
 
 
-        // شناخت فردی
+<script src="students.js"></script>
 
-        interests: "",
 
-        strengths: "",
+<script>
 
-        weaknesses: "",
+let box = document.getElementById("students-container");
 
 
-        // وضعیت نیازمند توجه
+students.forEach(student => {
 
-        attentionNeeded: false,
 
+box.innerHTML += `
 
-        // یادداشت‌های معلم
+<div class="card">
 
-        notes: "",
+<h2>
+👤 ${student.name}
+</h2>
 
+<p>
+گروه: ${student.group}
+</p>
 
-        // پایش یادگیری
+<p>
+سطح علمی: ثبت نشده
+</p>
 
-        assessments: [],
+<button>
+ورود به پرونده
+</button>
 
+</div>
 
-        // امتیازات لیگ
+`;
 
-        points: 0
 
+});
 
-    });
 
-}
+</script>
 
 
+</body>
 
-// پیدا کردن دانش آموز
-
-function getStudent(id){
-
-    return students.find(
-        student => student.id === id
-    );
-
-}
-
-
-
-// اضافه کردن دانش آموز
-
-function addStudent(name){
-
-    let id = students.length + 1;
-
-
-    students.push({
-
-        id:id,
-
-        name:name,
-
-        group:Math.ceil(id / 4),
-
-        level:"",
-
-        reading:"",
-
-        writing:"",
-
-        concentration:"",
-
-        responsibility:"",
-
-        roleTaking:"",
-
-        interests:"",
-
-        strengths:"",
-
-        weaknesses:"",
-
-        attentionNeeded:false,
-
-        notes:"",
-
-        assessments:[],
-
-        points:0
-
-    });
-
-}
+</html>
