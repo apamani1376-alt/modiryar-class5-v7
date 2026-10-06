@@ -1,46 +1,127 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<title>پرونده دانش‌آموزان</title>
-<link rel="stylesheet" href="style.css">
-</head>
+// بانک اطلاعات دانش آموزان مدیریار کلاس پنجم
 
-<body>
+const students = [];
 
-<div class="container">
+// ساخت 32 دانش آموز در 8 گروه 4 نفره
 
-<h1>👨‍🎓 پرونده هوشمند دانش‌آموزان</h1>
+for(let i = 1; i <= 32; i++){
 
-<div class="card">
+    let group = Math.ceil(i / 4);
 
-<h2>دانش‌آموز ۱</h2>
+    students.push({
 
-<p>گروه: ۱</p>
-<p>سطح علمی: ثبت نشده</p>
-<p>تمرکز: ثبت نشده</p>
-<p>مسئولیت‌پذیری: ثبت نشده</p>
+        id: i,
 
-<button>ویرایش اطلاعات</button>
+        name: "دانش‌آموز " + i,
 
-</div>
+        group: group,
 
+        // وضعیت آموزشی
 
-<div class="card">
+        level: "",
 
-<h2>دانش‌آموز ۲</h2>
+        reading: "",
 
-<p>گروه: ۱</p>
-<p>سطح علمی: ثبت نشده</p>
-<p>تمرکز: ثبت نشده</p>
-<p>مسئولیت‌پذیری: ثبت نشده</p>
-
-<button>ویرایش اطلاعات</button>
-
-</div>
+        writing: "",
 
 
-</div>
+        // ویژگی‌های فردی
 
-</body>
-</html>
+        concentration: "",
+
+        responsibility: "",
+
+        roleTaking: "",
+
+
+        // شناخت فردی
+
+        interests: "",
+
+        strengths: "",
+
+        weaknesses: "",
+
+
+        // وضعیت نیازمند توجه
+
+        attentionNeeded: false,
+
+
+        // یادداشت‌های معلم
+
+        notes: "",
+
+
+        // پایش یادگیری
+
+        assessments: [],
+
+
+        // امتیازات لیگ
+
+        points: 0
+
+
+    });
+
+}
+
+
+
+// پیدا کردن دانش آموز
+
+function getStudent(id){
+
+    return students.find(
+        student => student.id === id
+    );
+
+}
+
+
+
+// اضافه کردن دانش آموز
+
+function addStudent(name){
+
+    let id = students.length + 1;
+
+
+    students.push({
+
+        id:id,
+
+        name:name,
+
+        group:Math.ceil(id / 4),
+
+        level:"",
+
+        reading:"",
+
+        writing:"",
+
+        concentration:"",
+
+        responsibility:"",
+
+        roleTaking:"",
+
+        interests:"",
+
+        strengths:"",
+
+        weaknesses:"",
+
+        attentionNeeded:false,
+
+        notes:"",
+
+        assessments:[],
+
+        points:0
+
+    });
+
+}
