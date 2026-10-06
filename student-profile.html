@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>پرونده دانش‌آموز</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="header">
+
+<h1>
+📂 پرونده دانش‌آموز
+</h1>
+
+<p>
+مدیریت هوشمند کلاس پنجم
+</p>
+
+</div>
+
+
+
+<div class="card" id="profile">
+
+در حال بارگذاری...
+
+</div>
+
+
+
+</div>
+
+
+
+<script src="students.js"></script>
+
+
+
+<script>
+
+
+let params = new URLSearchParams(window.location.search);
+
+
+let id = Number(params.get("id"));
+
+
+
+let student = students.find(s => s.id === id);
+
+
+
+let box = document.getElementById("profile");
+
+
+
+if(student){
+
+
+box.innerHTML = `
+
+
+<h2>
+👤 ${student.name}
+</h2>
+
+
+<hr>
+
+
+<p>
+👥 گروه:
+${student.group || "ثبت نشده"}
+</p>
+
+
+<p>
+📚 سطح علمی:
+${student.level || "ثبت نشده"}
+</p>
+
+
+<p>
+🎯 تمرکز:
+${student.concentration || "ثبت نشده"}
+</p>
+
+
+<p>
+⭐ مسئولیت پذیری:
+${student.responsibility || "ثبت نشده"}
+</p>
+
+
+<p>
+💪 نقاط قوت:
+${student.strengths || "ثبت نشده"}
+</p>
+
+
+<p>
+⚠️ نقاط ضعف:
+${student.weaknesses || "ثبت نشده"}
+</p>
+
+
+<p>
+📝 یادداشت معلم:
+${student.notes || "ثبت نشده"}
+</p>
+
+
+<button>
+✏️ ویرایش پرونده
+</button>
+
+
+`;
+
+
+}
+
+else{
+
+
+box.innerHTML="دانش‌آموز پیدا نشد";
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
